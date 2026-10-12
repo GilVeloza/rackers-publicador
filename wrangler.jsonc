@@ -1,0 +1,40 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  // Publica cada día los vídeos de Rackers en Instagram y TikTok: uno en
+  // español, otro en inglés y otro en el idioma que toca ese día.
+  "name": "rackers-publicador",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-09-01",
+  // La misma cuenta de Cloudflare que la API (racqer-api).
+  "account_id": "5cac3e3413c9038fe20f6029f1af2f90",
+  "observability": { "enabled": true },
+  "workers_dev": false,
+  // Instagram descarga el vídeo de una dirección pública y las dos redes
+  // vuelven aquí al conectar la cuenta: hace falta un dominio propio.
+  "routes": [{ "pattern": "publicar.rackers.app", "custom_domain": true }],
+  // Tres publicaciones al día, en hora UTC (Madrid es UTC+1 en invierno y UTC+2 en verano):
+  // el idioma del día a las 8, el inglés a las 13 y el español a las 18.
+  "triggers": { "crons": ["0 8 * * *", "0 13 * * *", "0 18 * * *"] },
+  "vars": {
+    // El primer día del calendario: de aquí sale qué frase y qué idioma tocan.
+    "INICIO": "2026-10-11",
+    // El primer día que publica solo (el 11 se publicó a mano).
+    "DESDE": "2026-10-12",
+    "BASE_URL": "https://publicar.rackers.app",
+    "IG_API_VERSION": "v23.0",
+    // TikTok sin auditar solo deja subir a la bandeja (borrador) o publicar
+    // en privado. Cuando TikTok apruebe la app: "publico".
+    "TIKTOK_MODO": "borrador"
+  },
+  // Los vídeos: <idioma>/rackers-<frase>-<idioma>.mp4, los mismos de
+  // racqer-ios/design/content/reels (se suben con subir-videos.sh).
+  "r2_buckets": [{ "binding": "VIDEOS", "bucket_name": "rackers-reels" }],
+  // Las cuentas conectadas (tokens) y el registro de lo publicado.
+  // El id sale de `wrangler kv namespace create rackers-publicador`.
+  "kv_namespaces": [{ "binding": "ESTADO", "id": "d7944c4526fd4097a2346b89c8bfaefb" }],
+  // Las claves van con `wrangler secret put` (ver el README): CLAVE_ADMIN,
+  // IG_APP_ID, IG_APP_SECRET, TIKTOK_CLIENT_KEY y TIKTOK_CLIENT_SECRET. No se
+  // marcan como obligatorias para poder desplegar antes de tenerlas: sin
+  // CLAVE_ADMIN las páginas privadas responden 404 y sin las de cada red esa
+  // red no publica (queda el error en /estado).
+}
