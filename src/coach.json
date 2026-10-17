@@ -1,0 +1,142 @@
+{
+  "es": {
+    "texto": "¿Juegas bien… o eso crees? Graba tu partido con el móvil y Rackers te dice tres cosas que corregir, cada una con su ejercicio y el segundo del vídeo donde se ve. Tu entrenador de bolsillo.",
+    "hashtags": "#rackers #entrenador",
+    "deportes": {
+      "padel": "#padel #pádel #padeltraining",
+      "tenis": "#tenis #tennis",
+      "pickleball": "#pickleball",
+      "squash": "#squash"
+    }
+  },
+  "en": {
+    "texto": "You play well… or so you think? Film your match on your phone and Rackers shows you three things to fix, each with a drill and the exact second in the video. Your pocket coach.",
+    "hashtags": "#rackers #coach",
+    "deportes": {
+      "padel": "#padel #padeltennis #padeltraining",
+      "tenis": "#tennis #tennistraining",
+      "pickleball": "#pickleball #pickleballtraining",
+      "squash": "#squash #squashtraining"
+    }
+  },
+  "fr": {
+    "texto": "Vous jouez bien… vous croyez ? Filmez votre match avec votre téléphone : Rackers vous montre trois choses à corriger, chacune avec son exercice et la seconde exacte de la vidéo. Votre coach de poche.",
+    "hashtags": "#rackers #coach",
+    "deportes": {
+      "padel": "#padel #padelfrance",
+      "tenis": "#tennis",
+      "pickleball": "#pickleball",
+      "squash": "#squash"
+    }
+  },
+  "pt-PT": {
+    "texto": "Joga bem… acha mesmo? Grave o seu jogo com o telemóvel e o Rackers mostra-lhe três coisas a corrigir, cada uma com o seu exercício e o segundo exato do vídeo. O seu treinador de bolso.",
+    "hashtags": "#rackers #treinador",
+    "deportes": {
+      "padel": "#padel #padelportugal",
+      "tenis": "#ténis #tennis",
+      "pickleball": "#pickleball",
+      "squash": "#squash"
+    }
+  },
+  "pt-BR": {
+    "texto": "Você joga bem… acha mesmo? Grave sua partida com o celular e o Rackers mostra três coisas para corrigir, cada uma com seu exercício e o segundo exato do vídeo. Seu treinador de bolso.",
+    "hashtags": "#rackers #treinador",
+    "deportes": {
+      "padel": "#padel #padelbrasil",
+      "tenis": "#tênis #tennis",
+      "pickleball": "#pickleball #pickleballbrasil",
+      "squash": "#squash"
+    }
+  },
+  "it": {
+    "texto": "Giochi bene… o almeno credi? Filma la tua partita con il telefono e Rackers ti mostra tre cose da correggere, ognuna con il suo esercizio e il secondo esatto del video. Il tuo allenatore tascabile.",
+    "hashtags": "#rackers #allenatore",
+    "deportes": {
+      "padel": "#padel #padelitalia",
+      "tenis": "#tennis",
+      "pickleball": "#pickleball",
+      "squash": "#squash"
+    }
+  },
+  "de": {
+    "texto": "Du spielst gut… denkst du? Filme dein Spiel mit dem Handy und Rackers zeigt dir drei Dinge zum Verbessern, jedes mit einer Übung und der genauen Sekunde im Video. Dein Coach für die Tasche.",
+    "hashtags": "#rackers #coach",
+    "deportes": {
+      "padel": "#padel #padeldeutschland",
+      "tenis": "#tennis",
+      "pickleball": "#pickleball",
+      "squash": "#squash"
+    }
+  },
+  "nl": {
+    "texto": "Je speelt goed… denk je? Film je wedstrijd met je telefoon en Rackers laat je drie verbeterpunten zien, elk met een oefening en de exacte seconde in de video. Je coach op zak.",
+    "hashtags": "#rackers #coach",
+    "deportes": {
+      "padel": "#padel #padelnederland",
+      "tenis": "#tennis",
+      "pickleball": "#pickleball",
+      "squash": "#squash"
+    }
+  },
+  "sv": {
+    "texto": "Du spelar bra… tror du? Filma din match med mobilen så visar Rackers tre saker att rätta till, var och en med en övning och exakt sekund i videon. Din tränare i fickan.",
+    "hashtags": "#rackers #tränare",
+    "deportes": {
+      "padel": "#padel #padelsverige",
+      "tenis": "#tennis",
+      "pickleball": "#pickleball",
+      "squash": "#squash"
+    }
+  },
+  "vi": {
+    "texto": "Bạn chơi hay… bạn nghĩ vậy? Quay trận đấu bằng điện thoại và Rackers chỉ ra ba điều cần sửa, mỗi điều kèm bài tập và giây chính xác trong video. Huấn luyện viên bỏ túi.",
+    "hashtags": "#rackers #huanluyenvien",
+    "deportes": {
+      "padel": "#padel #padelvietnam",
+      "tenis": "#tennis #quanvot",
+      "pickleball": "#pickleball #pickleballvietnam",
+      "squash": "#squash"
+    }
+  },
+  "zh-Hans": {
+    "texto": "你打得不错……你以为而已？用手机拍下比赛，Rackers 告诉你三个要改的地方，每个都配练习，并标出视频里的准确秒数。你的口袋教练。",
+    "hashtags": "#rackers #教练",
+    "deportes": {
+      "padel": "#padel #板式网球",
+      "tenis": "#tennis #网球",
+      "pickleball": "#pickleball #匹克球",
+      "squash": "#squash #壁球"
+    }
+  },
+  "ja": {
+    "texto": "うまく打ててる…と思ってる？スマホで試合を撮れば、Rackersが直すところを3つ、ドリルと動画の正確な秒数付きで教えてくれます。ポケットにコーチを。",
+    "hashtags": "#rackers #コーチ",
+    "deportes": {
+      "padel": "#padel #パデル",
+      "tenis": "#tennis #テニス",
+      "pickleball": "#pickleball #ピックルボール",
+      "squash": "#squash #スカッシュ"
+    }
+  },
+  "hi": {
+    "texto": "आप अच्छा खेलते हैं… सच में? अपने फ़ोन से मैच रिकॉर्ड कीजिए और Rackers सुधारने की तीन बातें दिखाता है, हर एक के साथ अभ्यास और वीडियो का सही सेकंड। आपका पॉकेट कोच।",
+    "hashtags": "#rackers #coach",
+    "deportes": {
+      "padel": "#padel #padelindia",
+      "tenis": "#tennis #tennisindia",
+      "pickleball": "#pickleball #pickleballindia",
+      "squash": "#squash #squashindia"
+    }
+  },
+  "ar": {
+    "texto": "تلعب جيدًا… هكذا تظن؟ صوّر مباراتك بهاتفك ويُريك Rackers ثلاثة أشياء لتصحيحها، لكل منها تمرين واللحظة الدقيقة في الفيديو. مدربك في جيبك.",
+    "hashtags": "#rackers #مدرب",
+    "deportes": {
+      "padel": "#padel #بادل",
+      "tenis": "#tennis #تنس",
+      "pickleball": "#pickleball #بيكلبول",
+      "squash": "#squash #اسكواش"
+    }
+  }
+}

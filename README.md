@@ -20,6 +20,24 @@ descripción de cada idioma está en `src/descripciones.json` (copia de
 Si una red falla, la otra sigue; lo que salió bien no se repite al reintentar
 (`POST /probar`). Todo queda en `GET /estado`.
 
+## Los Reels del entrenador de bolsillo
+
+Desde el día `COACH_DESDE` (`wrangler.jsonc`) publica, en los mismos tres
+huecos, los Reels del entrenador (`racqer-ios/design/video/coach-bolsillo`,
+con la voz de Liam): cada día un deporte por turno (pádel, tenis, pickleball,
+squash), el español y el inglés siempre, y el tercer idioma rota entre los 12
+que tienen vídeo (`ROTACION_COACH` en `src/calendario.ts`). Las descripciones
+están en `src/coach.json`. Vacío, siguen los Reels de frases.
+
+Para activarlos:
+
+1. `./subir-coach.sh` (sube los 56 vídeos a R2 como `coach/<deporte>/rackers-coach-<deporte>-<idioma>.mp4`).
+2. Poner la fecha en `COACH_DESDE` y `npm run deploy`.
+3. Mirar `/estado`: «hoy» y «mañana» enseñan el deporte y el vídeo de cada hueco.
+
+Ojo: esos Reels enseñan la detección de jugadores, la trayectoria de la bola y
+el mapa de calor. La fecha tiene que ser la de la versión de la app que los trae.
+
 ## Ponerlo en marcha (una vez)
 
 Lo que solo puedes hacer tú está en **negrita**: crear las apps y dar permiso

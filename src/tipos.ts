@@ -4,6 +4,8 @@ export interface Env {
   INICIO: string;
   /** AAAA-MM-DD: antes de este día no publica nada (los cron siguen, pero no hacen nada). */
   DESDE?: string;
+  /** AAAA-MM-DD: desde este día publica los Reels del entrenador de bolsillo. Vacío: siguen los de frases. */
+  COACH_DESDE?: string;
   BASE_URL: string;
   IG_API_VERSION: string;
   TIKTOK_MODO: "borrador" | "privado" | "publico";

@@ -20,6 +20,11 @@
     "INICIO": "2026-10-11",
     // El primer día que publica solo (el 11 se publicó a mano).
     "DESDE": "2026-10-12",
+    // Desde este día (AAAA-MM-DD) publica los Reels del entrenador de bolsillo
+    // (coach/<deporte>/rackers-coach-<deporte>-<idioma>.mp4, con subir-coach.sh).
+    // Vacío: siguen los de frases. Esos Reels enseñan la detección de jugadores,
+    // la trayectoria y el mapa de calor: la fecha es la de la versión de la app que los trae.
+    "COACH_DESDE": "2026-10-18",
     "BASE_URL": "https://publicar.rackers.app",
     "IG_API_VERSION": "v23.0",
     // TikTok sin auditar solo deja subir a la bandeja (borrador) o publicar

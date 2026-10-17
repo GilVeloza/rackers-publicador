@@ -3,12 +3,13 @@
 // los vídeos (Instagram los descarga de una URL pública) y las páginas para
 // conectar las dos cuentas.
 
-import { diaDelCalendario, huecoDelCron, publicacion, type Hueco, type Publicacion } from "./calendario.ts";
+import { huecoDelCron, toca, type Hueco, type Publicacion } from "./calendario.ts";
 import * as instagram from "./instagram.ts";
 import * as tiktok from "./tiktok.ts";
 import type { Env } from "./tipos.ts";
 
 const VIDEO = /^\/videos\/([A-Za-z-]{2,7})\/(rackers-[ABC]-[A-Za-z-]{2,7}\.mp4)$/;
+const VIDEO_COACH = /^\/videos\/(coach\/(?:padel|tenis|pickleball|squash))\/(rackers-coach-[a-z]+-[A-Za-z-]{2,7}\.mp4)$/;
 /** Lo que se guarda de cada publicación, 90 días. */
 const REGISTRO_TTL = 90 * 24 * 60 * 60;
 
@@ -24,7 +25,7 @@ export default {
     const url = new URL(request.url);
     const ruta = url.pathname;
 
-    const video = VIDEO.exec(ruta);
+    const video = VIDEO.exec(ruta) ?? VIDEO_COACH.exec(ruta);
     if (video && request.method === "GET") return servirVideo(request, env, `${video[1]}/${video[2]}`);
 
     // Todo lo demás es para el dueño: lleva la clave (menos la vuelta de cada
@@ -62,7 +63,7 @@ export async function publicarHueco(
   opciones: { prueba?: boolean; red?: "instagram" | "tiktok" } = {},
 ): Promise<Registro | { nada: string }> {
   if (!opciones.prueba && env.DESDE && cuando.toISOString().slice(0, 10) < env.DESDE) return { nada: `publica solo desde el ${env.DESDE}` };
-  const p = publicacion(Math.max(0, diaDelCalendario(env.INICIO, cuando)), hueco);
+  const p = toca(env.INICIO, env.COACH_DESDE, cuando, hueco);
   if (!p) return { nada: `el calendario empieza el ${env.INICIO}` };
   const clave = `${opciones.prueba ? "prueba" : "registro"}:${cuando.toISOString().slice(0, opciones.prueba ? 19 : 10)}:${hueco}`;
   const registro: Registro = (await env.ESTADO.get<Registro>(clave, "json")) ?? { publicacion: p };
@@ -124,15 +125,15 @@ async function servirVideo(request: Request, env: Env, clave: string): Promise<R
 
 /** Lo que pasa hoy y lo último publicado, sin enseñar ningún token. */
 async function estado(env: Env) {
-  const hoy = new Date();
-  const dia = diaDelCalendario(env.INICIO, hoy);
+  const hoy = new Date(), manana = new Date(hoy.getTime() + 24 * 60 * 60 * 1000);
   const fecha = hoy.toISOString().slice(0, 10);
   const huecos: Hueco[] = ["otro", "en", "es"];
   const lista = await env.ESTADO.list({ prefix: "registro:" });
   const ultimos = await Promise.all(lista.keys.slice(-9).map(async (k) => [k.name, await env.ESTADO.get(k.name, "json")]));
   return {
-    hoy: Object.fromEntries(huecos.map((h) => [h, publicacion(dia, h)])),
-    mañana: Object.fromEntries(huecos.map((h) => [h, publicacion(dia + 1, h)])),
+    hoy: Object.fromEntries(huecos.map((h) => [h, toca(env.INICIO, env.COACH_DESDE, hoy, h)])),
+    mañana: Object.fromEntries(huecos.map((h) => [h, toca(env.INICIO, env.COACH_DESDE, manana, h)])),
+    coachDesde: env.COACH_DESDE || "sin fecha: siguen los Reels de frases",
     conectadas: {
       instagram: (await env.ESTADO.get("cuenta:instagram")) !== null,
       tiktok: (await env.ESTADO.get("cuenta:tiktok")) !== null,
